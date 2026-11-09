@@ -75,6 +75,7 @@
   .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .hero h1{font-size:clamp(46px,6.4vw,78px);letter-spacing:-.015em}
   .hero h1 .sm{display:block;font-size:.52em;letter-spacing:0}
+  .hero h1 .ln{display:block;white-space:nowrap}
   .hero .sub{font-family:"Lora",serif;font-style:italic;font-weight:600;color:var(--teal-dk);font-size:clamp(20px,2.2vw,25px);margin:14px 0 22px}
   .hero .lede{font-size:clamp(21px,2.2vw,24px);max-width:520px;margin-bottom:30px}
   .hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
@@ -105,6 +106,7 @@
   /* reader */
   .reader .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
   .reader .head p{max-width:520px;margin:12px 0 0;color:var(--ink-soft)}
+  .reader .head p.all9{font-size:16px;margin-top:8px}
   .tabs{display:flex;gap:8px;flex-wrap:wrap}
   .tab{font-family:inherit;font-weight:800;font-size:16px;border:2px solid var(--line);background:#fff;color:var(--ink);padding:10px 18px;border-radius:999px;cursor:pointer}
   .tab[aria-selected="true"]{background:var(--saffron);border-color:var(--saffron);color:#fff}
@@ -126,25 +128,6 @@
   .band p{font-size:clamp(20px,2.4vw,24px);margin:0 0 10px;opacity:.92}
   .band .say{font-family:"Lora",serif;font-weight:700;font-size:clamp(34px,5vw,56px);line-height:1.15;margin-top:18px;opacity:1}
   .band.teal{background:var(--teal)}
-
-  /* nine */
-  .nine .head{max-width:720px;margin-bottom:40px}
-  .grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 0 var(--line),0 10px 30px rgba(46,38,34,.07);display:flex;flex-direction:column}
-  .card .ph{background:#fff;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:10px 10px 0}
-  .card .ph img{max-height:100%;width:auto;object-fit:contain}
-  .card .bd{padding:18px 24px 26px;flex:1;display:flex;flex-direction:column}
-  .card h3{font-size:24px}
-  .card .trad{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin:4px 0 10px}
-  .card .pr{font-size:14px;font-weight:700;color:var(--pill);background:var(--sand);border-radius:999px;padding:2px 10px;align-self:flex-start;margin-bottom:12px}
-  .card blockquote{margin:6px 0 0;font-style:italic;font-weight:700;font-size:17px;line-height:1.5;border-left:3px solid var(--sand);padding-left:14px}
-
-  /* photos */
-  .photos{background:var(--cream);padding-bottom:72px}
-  .photos .head{max-width:720px;margin-bottom:30px}
-  .strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 22px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-  .strip img{height:min(420px,62vw);width:auto;border-radius:14px;scroll-snap-align:center;box-shadow:0 12px 30px rgba(46,38,34,.18);flex:none}
-  .strip-hint{font-size:15px;color:var(--ink-soft);text-align:center;margin-top:6px}
 
   /* grown-ups */
   .grown .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
@@ -178,6 +161,9 @@
   .wonder{margin-top:26px;padding-top:22px;border-top:1px dashed var(--line);font-size:17px;color:var(--ink-soft)}
   .wonder strong{display:block;color:var(--ink);font-family:"Lora",serif;font-size:20px;margin-bottom:4px}
 
+  .feature{background:linear-gradient(180deg,#E9F5FB,var(--paper))}
+  .feature .head{max-width:720px;margin-bottom:28px}
+  .feature .head p:not(.eyebrow){color:var(--ink-soft);margin:12px 0 0}
   /* gift */
   .gift .head{max-width:720px;margin-bottom:36px}
   .gifts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -223,7 +209,7 @@
   .buybar .btn{font-size:15px;padding:11px 18px;box-shadow:none}
 
   @media (max-width:900px){
-    .steps,.grid9{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
     .gifts{grid-template-columns:1fr 1fr}
     .grown .wrap,.after .wrap,.makers .wrap{grid-template-columns:1fr;gap:40px}
   }
@@ -236,11 +222,12 @@
     .cover-wrap{max-width:330px;order:-1}
     .sticker{width:92px;height:92px;font-size:14px;left:-10px;bottom:-14px}
     .sticker b{font-size:30px}
-    .steps,.grid9,.gifts{grid-template-columns:1fr}
+    .steps,.gifts{grid-template-columns:1fr}
     .spread{grid-template-columns:1fr;min-height:0}
     .spread::after{display:none}
     .spread .txt{padding:8px 22px 34px}
     .spread h3{font-size:32px}
+    .feature .spread h3{font-size:28px}
     .letter{padding:32px 24px 28px;transform:none}
     .panel{padding:30px 22px}
     .final .buyrow{grid-template-columns:1fr;gap:30px;text-align:center}
@@ -267,7 +254,7 @@
   <div class="wrap">
     <div>
       <p class="eyebrow">By Bob Peck · Illustrated by Anum Khan</p>
-      <h1><span class="sm">What the</span>Awakened Ones<span class="sm">Say</span></h1>
+      <h1><span class="sm">What the</span><span class="ln">Awakened</span><span class="ln">Ones Say</span></h1>
       <p class="sub">Teachings from the World Mystics of History</p>
       <p class="lede">Nine teachers from across history. Their own words. And what one dad thinks they meant.</p>
       <div class="actions">
@@ -327,6 +314,7 @@
           <p class="eyebrow">Read a page tonight</p>
           <h2>Try one out loud</h2>
           <p>Six of the eighteen spreads, as they appear in the book. Read one slowly to your kid and see what they say.</p>
+          <p class="all9">The nine: Jesus, Buddha, Laozi, Krishna, Mirabai, Rabia, Yogananda, Julian of Norwich and Thich Nhat Hanh.</p>
         </div>
         <div class="tabs" role="tablist" aria-label="Choose a teacher">
           <button class="tab" role="tab" id="t-jesus" aria-controls="p-jesus" aria-selected="true">Jesus</button>
@@ -426,47 +414,6 @@
     </div>
   </div>
 
-  <section class="nine" id="teachers">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">Inside the book</p>
-        <h2>Meet the nine</h2>
-        <p style="margin-top:16px;color:var(--ink-soft)">Different times, different places, different languages. Pronunciation guides are right on the page, so nobody trips on a name at bedtime.</p>
-      </div>
-      <div class="grid9">
-        <div class="card"><div class="ph"><img src="img/jesus-2.jpg" width="1100" height="807" alt="Jesus with his hand on a young boy's shoulder." loading="lazy"></div><div class="bd"><h3>Jesus</h3><p class="trad">Galilee · 2,000 years ago</p><blockquote>“Love your enemies. Pray for those who hurt you.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/buddha-2.jpg" width="1100" height="830" alt="The Buddha walking through a village as a mother and child greet him." loading="lazy"></div><div class="bd"><h3>Buddha</h3><p class="trad">Nepal · 2,500 years ago</p><span class="pr">boo-duh</span><blockquote>“Just as a mother would protect her only child with her life, even so let one cultivate a boundless love towards all beings.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/laozi-2.jpg" width="1100" height="800" alt="Laozi sitting by a river with a child stepping across the stones." loading="lazy"></div><div class="bd"><h3>Laozi</h3><p class="trad">China · 2,500 years ago</p><span class="pr">loud-zuh</span><blockquote>“Mastering others is strength; mastering yourself is true power.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/krishna-1.jpg" width="1100" height="783" alt="Krishna speaking with Arjuna in a golden chariot." loading="lazy"></div><div class="bd"><h3>Sri Krishna</h3><p class="trad">India · the Bhagavad Gita</p><span class="pr">shree krish-nah</span><blockquote>“The soul is never born and never dies.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/mirabai-2.jpg" width="1100" height="906" alt="Mirabai sitting by a river with her instrument, a palace on the far shore." loading="lazy"></div><div class="bd"><h3>Mirabai</h3><p class="trad">Rajasthan, India · 1500s</p><span class="pr">meera-bye</span><blockquote>“My eyes have their own life; they laugh at rules, and know whose they are.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/rabia-2.jpg" width="1100" height="854" alt="Rabia kneeling in prayer at dusk, with domes and towers glowing behind her." loading="lazy"></div><div class="bd"><h3>Rabia al-Adawiyya</h3><p class="trad">Basra · 1,300 years ago</p><span class="pr">rah-bee-uh</span><blockquote>“It is the Lord of the house I need. What have I to do with the house?”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/yogananda-2.jpg" width="1100" height="867" alt="Yogananda walking down a garden path holding a flower." loading="lazy"></div><div class="bd"><h3>Paramahansa Yogananda</h3><p class="trad">India and America · 1893–1952</p><span class="pr">yoga-nahn-duh</span><blockquote>“Be as simple as you can be; you will be astonished to see how uncomplicated and happy your life can become.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/julian-2.jpg" width="1100" height="885" alt="Julian of Norwich holding a tiny glowing hazelnut in her palm." loading="lazy"></div><div class="bd"><h3>Julian of Norwich</h3><p class="trad">England · 1300s</p><span class="pr">nor-itch</span><blockquote>“All shall be well, and all shall be well, and all manner of things shall be well.”</blockquote></div></div>
-        <div class="card"><div class="ph"><img src="img/thay-2.jpg" width="1100" height="991" alt="Bare feet walking slowly on a dirt path with small flowers in the footprints." loading="lazy"></div><div class="bd"><h3>Thich Nhat Hanh</h3><p class="trad">Vietnam · 1926–2022</p><span class="pr">tick nyaht hahn</span><blockquote>“Walk as if you are kissing the earth with your feet.”</blockquote></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="photos" aria-label="Photos of the printed book">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">The real thing</p>
-        <h2>Big pictures on the left. Words to read on the right.</h2>
-      </div>
-    </div>
-    <div class="strip" tabindex="0" aria-label="Photos of open spreads, scroll sideways">
-      <img src="img/shot-mirabai.jpg" width="1400" height="1050" alt="The printed book open to Mirabai's spread, lying on grass." loading="lazy">
-      <img src="img/shot-jesus.jpg" width="1400" height="1050" alt="The printed book open to Jesus's spread, lying on grass." loading="lazy">
-      <img src="img/shot-laozi.jpg" width="1400" height="1050" alt="The printed book open to Laozi's spread, lying on grass." loading="lazy">
-      <img src="img/shot-rabia.jpg" width="1400" height="1050" alt="The printed book open to Rabia's spread, lying on grass." loading="lazy">
-      <img src="img/shot-yogananda.jpg" width="1400" height="1050" alt="The printed book open to Yogananda's spread, lying on grass." loading="lazy">
-      <img src="img/shot-buddha.jpg" width="1400" height="1050" alt="The printed book open to Buddha's spread, lying on grass." loading="lazy">
-      <img src="img/shot-julian.jpg" width="1400" height="1050" alt="The printed book open to Julian of Norwich's spread, lying on grass." loading="lazy">
-      <img src="img/shot-what-do-you-say.jpg" width="1050" height="1400" alt="The What Do You Say? page near the end of the book." loading="lazy">
-    </div>
-    <p class="strip-hint">Swipe or scroll sideways →</p>
-  </section>
-
   <section class="grown" id="grown-ups">
     <div class="wrap">
       <div class="letter">
@@ -556,6 +503,28 @@
     </div>
   </section>
 
+  <section class="feature">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The one on the cover</p>
+        <h2>One more to read tonight</h2>
+        <p>Paramahansa Yogananda sits on the front of the book. Here’s his first spread.</p>
+      </div>
+      <article class="spread">
+        <div class="pic"><img class="art" src="img/yogananda-1.jpg" width="1100" height="904" alt="Yogananda in an orange robe, meditating on a purple mat above the ocean." loading="lazy"></div>
+        <div class="txt">
+          <h3>Paramahansa Yogananda</h3>
+          <span class="pron">par-ah-muh-hahn-suh yoga-nahn-duh</span>
+          <p class="was">…was a yogi from India who brought ancient wisdom to America.</p>
+          <p class="lbl">Listen to what Yogananda said:</p>
+          <p class="quote">“You do not have to struggle to reach God, but you do have to struggle to tear away the self-created veil that hides him from you.”</p>
+          <p class="lbl">Here’s what I think he meant:</p>
+          <p class="meant">Yogananda traveled from India to America to share a beautiful secret: God isn’t far away. God is right here, right now, closer than our own breath. The only problem? We’ve covered ourselves in layers—worries, distractions, and the busy noises of life—like a dozen bed sheets piled on top of a lamp. The light’s already on. We just have to pull off the blankets and appreciate its light.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="gift">
     <div class="wrap">
       <div class="head">
@@ -568,7 +537,7 @@
         <div class="g"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l9-3 9 3-9 3z"/><path d="M7 8v5c0 1.7 2.2 3 5 3s5-1.3 5-3V8M21 6v6"/></svg></div><h3>Classrooms and homeschool</h3><p>Nine short lessons in kindness, with a pause page between each group of three.</p></div>
         <div class="g"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg></div><h3>Families with more than one tradition</h3><p>A Muslim saint, a Christian mystic and a Hindu princess on the same shelf.</p></div>
       </div>
-      <p class="bulk">Ordering for a school, a library or a group? <a href="https://bobpeck.io">Reach Bob through bobpeck.io</a>.</p>
+      <p class="bulk">Ordering copies for a group, library, or organization? Reach Bob at <a href="mailto:bob@mindheartlens.com">bob@mindheartlens.com</a> or on <a href="https://bobpeck.io">bobpeck.io</a>.</p>
     </div>
   </section>
 
@@ -607,7 +576,7 @@
     </div>
     <div class="wrap letters">
       <p class="eyebrow">Stay in touch</p>
-      <h3>Letters from Bob</h3>
+      <h3>Articles from Bob</h3>
       <p>I write on Substack now and then, about this book, the teachers, and what comes next.</p>
       <iframe src="https://bobpeck.substack.com/embed" title="Subscribe to Bob Peck on Substack" loading="lazy" scrolling="no"></iframe>
     </div>
